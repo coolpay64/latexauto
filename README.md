@@ -1,0 +1,2 @@
+# latexauto
+Latex Automation System.
