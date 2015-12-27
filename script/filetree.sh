@@ -55,9 +55,12 @@ dirLevelSearch(){
     local head=1
     for nPath in $(find $fPath -maxdepth 1 -type d | sort); do
       if [ "$head" -eq "0" ] ; then
-        level=$(($level + 1 ))
-        dirLevelSearch "$nPath" "$fileLevel"
-        fileLevel=$(($fileLevel+$?))
+        if [[ ! ("$(echo $nPath | sed 's/.*\///')" =~ ^(\.).*) ]]; then
+          level=$(($level + 1 ))
+          dirLevelSearch "$nPath" "$fileLevel"
+          fileLevel=$(($fileLevel+$?))
+          level=$(($level - 1 ))
+        fi
       fi
       head=0
     done
@@ -77,7 +80,6 @@ dirLevelSearch(){
   if [ "$level" -gt "$maxLevel" ]; then
     maxLevel=$level
   fi
-  level=$(($level - 1 ))
   return $fileLevel
 }
 
