@@ -35,6 +35,8 @@ Usage: ./script/buildtodo.sh directory
 - e.g. ./script/buildtodo.sh .
 This generates all todo items under current.
 
+![Run example](https://github.com/coolpay64/latexauto/blob/master/todolist.PNG?raw=true)
+
 ## Contact
 These scripts are just ad-hoc stuff. There must be bugs.
 Feel free to let me know through GitHub / Mail : coolpay64@gmail.com
